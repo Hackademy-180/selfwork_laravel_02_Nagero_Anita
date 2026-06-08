@@ -89,6 +89,8 @@
             transform: translateY(-2px);
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
         }
+
+
     </style>
 </head>
 
@@ -99,8 +101,8 @@
     <!-- FINE NAVBAR -->
 
 
-    <div class="container">
-<header class="text-center mb-5">
+        <div class="container">
+    <header class="text-center mb-5">
 
         <!-- TITOLONE DI PAGINA -->
         <h1 class="fw-bold display-3 txt-bl">Benvenuto nella Homepage!</h1>
@@ -116,8 +118,9 @@
 
         <div class="p-2">Servizi & Contatti</div>
 
+</header>
 
-    </header>
+
     <!-- inizio MAIN -->
     <main class="container mb-5">
         <section class="row g-2">

@@ -1,0 +1,58 @@
+/* PALETTE COLORI */
+:root {
+
+    --gr-dk: green;
+    --lme: lime;
+    --p: purple;
+    --blk: black;
+    --wht: white;
+    --bl: blue;
+}
+
+/* CLASSI UTILITY */
+.bg-gr-dk {
+    background-color: var(--gr-dk);
+}
+
+
+.bg-lme {
+    background-color: var(--lme);
+}
+
+.bg-p {
+    background-color: var(--p);
+}
+
+.bg-blk {
+    background-color: var(--blk);
+}
+
+.bg-wht {
+    background-color: var(--wht);
+}
+
+.bg-bl {
+    background-color: var(--bl);
+}
+
+/* TESTI */
+
+.txt-gr-dk {
+    color: var(--gr-dk);
+}
+
+.txt-lme {
+    color: var(--lme);
+}
+
+.txt-p {
+    color: var(--p);
+}
+
+.txt-bl {
+    color: var(--bl);
+}
+
+.txt-wht {
+    color: var(--wht);
+}

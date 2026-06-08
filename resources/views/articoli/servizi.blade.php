@@ -24,64 +24,6 @@
 
 
 
-        /* PALETTE COLORI */
-        :root {
-
-            --gr-dk: green;
-            --lme: lime;
-            --p: purple;
-            --blk: black;
-            --wht: white;
-            --bl: blue;
-        }
-
-        /* CLASSI UTILITY */
-        .bg-gr-dk {
-            background-color: var(--gr-dk);
-        }
-
-
-        .bg-lme {
-            background-color: var(--lme);
-        }
-
-        .bg-p {
-            background-color: var(--p);
-        }
-
-        .bg-blk {
-            background-color: var(--blk);
-        }
-
-        .bg-wht {
-            background-color: var(--wht);
-        }
-
-        .bg-bl {
-            background-color: var(--bl);
-        }
-
-        /* TESTI */
-
-        .txt-gr-dk {
-            color: var(--gr-dk);
-        }
-
-        .txt-lme {
-            color: var(--lme);
-        }
-
-        .txt-p {
-            color: var(--p);
-        }
-
-        .txt-bl {
-            color: var(--bl);
-        }
-
-        .txt-wht {
-            color: var(--wht);
-        }
 
         .card {
             transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -135,6 +77,8 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card h-100">
                     <div class="card-body d-flex flex-column p-4">
+
+               
                         <h5 class="card-title mb-2 py-2">{{ $argomento['title'] }}</h5>
 
                         <p class="card-text mb-2 py-2"> {{ $argomento['content'] }}</p>

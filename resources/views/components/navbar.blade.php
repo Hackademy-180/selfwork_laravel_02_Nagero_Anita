@@ -12,13 +12,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('homepage') }}">Homepage</a>
                     </li>
-                   
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('about-us') }}">Chi Siamo</a>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('servizi') }}">Servizi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about-us') }}">Chi Siamo</a>
+                        <a class="nav-link" href="{{ route('articoli.index') }}">tutti Articoli</a>
                     </li>
                 </ul>
             </div>

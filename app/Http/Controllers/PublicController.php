@@ -10,11 +10,9 @@ class PublicController extends Controller
 {
     //homepage collegamaneto
 
-    public function homepage(){
-        $title = "Homepage";
-        $argomenti =
-        
-                [
+        public function homepage(){
+                $title = "Homepage";
+                $argomenti =[
 
                 [ 'id' => 1, 'title' => 'HTML', 'description' => 'Primo argomento di linguaggio pagina web'],
                 ['id'=> 2, 'title' => 'Javascript' , 'description' => 'Javascript serve per interattività, animazioni e dinamicità'],
@@ -34,21 +32,21 @@ return view('homepage', [ 'title'=> $title, 'argomenti'=> $argomenti]);
 
      $students = [
 
-    'name' => 'Studenti Online ' ,
-    'content'=> 'Persone che studiano online sul pc'];
+        'name' => 'Studenti Online ' ,
+        'content'=> 'Persone che studiano online sul pc'];
 
-$teamInfo= [
-     'name' => 'Persone del Team' ,
-    'rule'=> 'Maestro esperto a: ' ,
-    'content'=> 'Study on-line ( Persone guidano lo studio online)'];
-    
-
-    $maestri = [
-        ['id' => 1, 'name' => 'Nicola', 'subject' => 'HTML & #CSS'],
-        ['id' => 2, 'name' => 'Maria', 'subject' => 'Javascript'],
-        ['id' => 3, 'name' => 'Maik', 'subject' => 'PHP & Laravel']];
+        $teamInfo= [
+            'name' => 'Persone del Team' ,
+            'rule'=> 'Maestro esperto a: ' ,
+            'content'=> 'Study on-line ( Persone guidano lo studio online)'];
         
-      
+
+        $maestri = [
+            ['id' => 1, 'name' => 'Nicola', 'subject' => 'HTML & #CSS'],
+            ['id' => 2, 'name' => 'Maria', 'subject' => 'Javascript'],
+            ['id' => 3, 'name' => 'Maik', 'subject' => 'PHP & Laravel']];
+            
+        
       
 
     //passare gli Array per un return view
@@ -56,19 +54,20 @@ return view('chi-siamo.about-us', ['students'=>$students, 'teamInfo'=> $teamInfo
 }
 
 
-    //funzione  MOSTRA I MAESTRI 
-    //funzione docenti collegata alle rotte
+
+
+
 
 //FUNZIONE AGGIUNTIVA / SERVIZI 
 public function servizi(){
 
-$arrayServizi= [
-    ['title' =>'HTML & #CSS', 'services' =>'Lezioni on-line'],
-    ['title' =>'Javascript'],
-    ['title'=>'PHP & Laravel']
-];
+            $arrayServizi= [
+                ['title' =>'HTML & #CSS', 'services' =>'Lezioni on-line'],
+                ['title' =>'Javascript'],
+                ['title'=>'PHP & Laravel']
+            ];
 
-        $argomenti = [
+            $argomenti = [
             ['title' => "Intro Html", 'content' => "Introduzione di Argomenti PC"],
             ['title' => "Javascript", 'content' => "Interattività"],
             ['title' => "Laravel", 'content' => "Backend"]
@@ -82,20 +81,20 @@ return view('articoli.servizi', ['servizi'=> $arrayServizi, 'argomenti'=>$argome
 //DETTAGLI DI ARGOMENTO ARTICOLO 
 public function index(){
 
-$infoArticles=[
-    ['argomento'=> 'HTML', 'info'=> 'Strutture ed impaginazioni'],
+            $infoArticles=[
+            ['argomento'=> 'HTML', 'info'=> 'Strutture ed impaginazioni'],
 
- ['argomento'=> 'CSS', 'info'=> 'Stili e design per il Layout'],
+            ['argomento'=> 'CSS', 'info'=> 'Stili e design per il Layout'],
 
-  ['argomento'=> 'Javascript', 'info'=> 'Dinamicità ed Interattività della pagina'],
+            ['argomento'=> 'Javascript', 'info'=> 'Dinamicità ed Interattività della pagina'],
 
-            ['argomento' => 'PHP', 'info' => 'Linguaggio backend per struttura dinamica'],
+             ['argomento' => 'PHP', 'info' => 'Linguaggio backend per struttura dinamica'],
 
             ['argomento' => 'Laravel', 'info' => 'Struttura Framework di backend']
 
 
     ];
-    return view('servizi',['argomenti'=>$infoArticles]);
+    return view('servizi',['infoArticles'=>$infoArticles]);
 }
 }
 

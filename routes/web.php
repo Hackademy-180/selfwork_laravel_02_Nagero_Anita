@@ -22,6 +22,4 @@ Route::get('/servizi', [PublicController::class, 'servizi'])->name('servizi');
 
 
 //ARTICOLI
-Route::get('/articoli', [ArticleController::class,'index'])->name('article.index');
-
-Route::get('/articoli/{id}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/articoli', [ArticleController::class,'index'])->name('articoli.index');
