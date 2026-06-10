@@ -19,16 +19,24 @@ class PublicController extends Controller
                 ['id'=> 3, 'title' => 'PHP', 'description' =>' Parte backend, comprende tutte le funzionalità di lato applicazioni'],
                 ['id'=> 4, 'title' => 'Computer-Web', 'description'=> 'lato-server e lato-client ( logiche ed applicativi)' ]
                 ];
-return view('homepage', [ 'title'=> $title, 'argomenti'=> $argomenti]);
 
+        //PRENDO I DETTAGLI DAL ArticleController
+        $detailsArticles = (new ArticleController)->detailsArticles;
+
+        return view('homepage', [
+            'title' => $title,
+            'argomenti' => $argomenti,
+            'detailsArticles' => $detailsArticles
+        ]);
     }
 
-            
-        
+
+
+
 
     //funzione chiSiamo
 
-     public function chiSiamo() {
+    public function chiSiamo() {
 
      $students = [
 
@@ -96,7 +104,8 @@ public function index(){
     ];
     return view('servizi',['infoArticles'=>$infoArticles]);
 }
+
+
+
 }
-
-
 

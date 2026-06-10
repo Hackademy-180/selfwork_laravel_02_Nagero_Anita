@@ -7,34 +7,39 @@
     <title>serviceSt</title>
 
 
-    <!-- LINK CSS PERSONALE -->
-    <link rel="stylesheet" href="style.css">
 
     <!-- link bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 
+
+    <!-- STILI TESTI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <style>
         body {
-            background-color: aquamarine;
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            flex-direction: column;
+            background-color: aquamarine !important;
         }
 
-
+        h1,
+        .h1 {
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            font-family: "Orbitron", sans-serif;
+        }
 
 
         .card {
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: floatCard 4s ease-in-out infinite;
         }
 
         .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+            transform: scale(1.05);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
         }
     </style>
-
 </head>
 
 <body>
@@ -52,18 +57,18 @@
     <div class="container mb-5">
         <div class="row">
             <div class="col-12 col-md-8">
-                <div class="card h-100 p-4">
-                    <div class="card-title">Opzioni di servizi disponibili-</div>
+                <div class="card border border-danger border-4 h-100 p-4">
+                    <div class=" card-title">Opzioni di servizi disponibili-</div>
 
-                    <ul class="list-unstyled mt-3">
-                        <li class="p-2 border-bottom">Argomento 1 - HTML con VSC</li>
-                        <li class="p-2 border-bottom">Argomento 2 - JAVASCRIPT</li>
-                        <li class="p-2">Argomento 3 - PHP e Laravel</li>
-                    </ul>
-                </div>
+                <ul class="list-unstyled mt-3">
+                    <li class="p-2 border-bottom">Argomento 1 - HTML con VSC</li>
+                    <li class="p-2 border-bottom">Argomento 2 - JAVASCRIPT</li>
+                    <li class="p-2">Argomento 3 - PHP e Laravel</li>
+                </ul>
             </div>
-
         </div>
+
+    </div>
     </div>
 
     <!-- CARDS -->
@@ -73,12 +78,13 @@
         <div class="row g-3">
 
             <!-- ciclare argomenti e metterci da publicController le funzioni a collegamento -->
-            @foreach($argomenti as $argomento)
-            <div class="col-12 col-md-6 col-lg-4">
+            @foreach($argomenti as $index => $argomento)
+            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
                 <div class="card h-100">
+
                     <div class="card-body d-flex flex-column p-4">
 
-               
+
                         <h5 class="card-title mb-2 py-2">{{ $argomento['title'] }}</h5>
 
                         <p class="card-text mb-2 py-2"> {{ $argomento['content'] }}</p>
@@ -98,7 +104,10 @@
         </div>
     </div>
 
-
+    <!-- KIT FONT-AWESOME XIKONS -->
+    <script src="https://kit.fontawesome.com/daf6ff33d9.js" crossorigin="anonymous"></script>
+    <!-- scpt bts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </body>
 

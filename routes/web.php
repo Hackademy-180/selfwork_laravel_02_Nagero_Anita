@@ -23,3 +23,14 @@ Route::get('/servizi', [PublicController::class, 'servizi'])->name('servizi');
 
 //ARTICOLI
 Route::get('/articoli', [ArticleController::class,'index'])->name('articoli.index');
+
+
+
+
+//magg dtails
+Route::get('/articoli/Html', fn() => view('articoli.Html'))->name('articoli.html');
+
+Route::get('/articoli/js', fn()=>view('articoli.js'));
+
+Route::get('/articoli/css', fn() => view('articoli.css'));
+Route::get('/articoli/php', fn() => view('articoli.php'));

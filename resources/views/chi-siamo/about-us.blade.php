@@ -14,14 +14,22 @@
 
 
 
+
+    <!-- STILI TESTI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <style>
         body {
-            background-color: aquamarine;
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            flex-direction: column;
+            background-color: aquamarine !important;
         }
 
+        h1,
+        .h1 {
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            font-family: "Orbitron", sans-serif;
+        }
 
 
         .card {
@@ -105,7 +113,10 @@
 
 
 
-
+    <!-- KIT FONT-AWESOME XIKONS -->
+    <script src="https://kit.fontawesome.com/daf6ff33d9.js" crossorigin="anonymous"></script>
+    <!-- scpt bts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 
 </body>
