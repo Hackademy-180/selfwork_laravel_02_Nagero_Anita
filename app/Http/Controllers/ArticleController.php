@@ -35,7 +35,7 @@ class ArticleController extends Controller
     }
 
 
-
+//HTML
 
 //   FUNZIONI PER PAGINE CARTELLA ARTICOLI/ In Dettaglio
 public function html(){
@@ -65,7 +65,8 @@ public function html(){
         ]);
     }
 
-    // PAGINA JS
+
+    // JS
     public function js()
     {
         $cards = [
@@ -85,13 +86,23 @@ public function html(){
                 'text' => 'DOM, oggetti, array, metodi, eventi e interazione con la pagina.'
             ]
         ];
+        $items = [
+            [
+                'title' => 'Alert JS',
+                'details' => 'Serve per mostrare messaggi',
+                'argoment' => 'alert()',
+                'content' => '<button onclick="alert(\'Ciao\')">Clicca</button>'
+            ]
+        ];
 
         return view('articoli.js', [
+            'items' => $items,
             'cards' => $cards
         ]);
+      
     }
 
-    // PAGINA CSS
+    // CSS
     public function css()
     {
         $cards = [
@@ -110,10 +121,21 @@ public function html(){
                 'title' => 'Media Queries',
                 'text' => 'Breakpoints, responsive design, layout e ottimizzazione del codice.'
             ]
+
         ];
+        
+    $items = [
+        [
+            'title' => 'Colori CSS',
+            'details' => 'Uso la proprietà color',
+            'argoment' => 'red, blue, green',
+            'content' => '<p style="color:red;">Testo rosso</p>'
+        ]
+    ];
 
         return view('articoli.css', [
-            'cards' => $cards
+            'cards' => $cards,
+            'items' => $items
         ]);
     }
 
@@ -129,7 +151,7 @@ public function html(){
             [
                 'header' => 'PHP Intermedio',
                 'title' => 'Array e OOP',
-                'text' => 'Array associativi, classi, oggetti, astrazione, ereditarietà e polimorfismo.'
+                'text' => 'Array associativi, classi, (oop)& MVC,oggetti, astrazione, ereditarietà e polimorfismo.'
             ],
             [
                 'header' => 'PHP Avanzato',
@@ -137,9 +159,48 @@ public function html(){
                 'text' => 'Funzioni, metodi, MVC, Eloquent e relazioni col database.'
             ]
         ];
+        $items = [
+            [
+                'title' => 'Echo PHP',
+                'details' => 'Serve per stampare',
+                'argoment' => 'echo',
+                'content' => '<?php echo "Ciao"; ?>'
+            ]
+        ];
 
         return view('articoli.php', [
+            'items' => $items,
             'cards' => $cards
         ]);
+
+     
     }
-}
+    
+    // controller aggiuntivo per le pagine speciali
+    //js,html,php;...
+    //Quelle che son le pagine di dettaglio
+    
+    public function htmlArray(){
+
+
+
+        $cards = [
+            [
+                'header' => 'HTML Base',
+                'title' => 'Struttura pagina',
+                'text' => 'Tag principali...'
+            ]
+        ];
+
+        $ex_code4view = [ [ 'title'=>'Tags Html',
+         'content'=> '<h1>Titolo</h1><p>Paragrafo</p>', 
+        'details'=>'Scrivo dentro a delle parentesi angolari il mio TAG(esistono tanti tags)',
+        'argoment'=> 'h1= è un titolo grande, h6 è il + piccolo, p= paragrafo per scrivere del testo']
+        
+        ];
+        return view('articoli.html',
+        ['cards' => $cards,
+        'ex_code4view' =>$ex_code4view]);
+        }
+        
+               }

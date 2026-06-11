@@ -14,7 +14,7 @@ class PublicController extends Controller
                 $title = "Homepage";
                 $argomenti =[
 
-            ['id' => 1, 'title' => 'HTML', 'description' => 'Primo argomento di linguaggio pagina web', 'info_url' =>route('articoli.html')],
+            ['id' => 1, 'title' => 'HTML', 'description' => 'Primo argomento di linguaggio pagina web', 'info_url' =>route('homepage')],
             ['id' => 2, 'title' => 'Javascript', 'description' => 'Javascript serve per interattività, animazioni e dinamicità', 'info_url' =>route('articoli.js')],
             ['id' => 3, 'title' => 'PHP', 'description' => ' Parte backend, comprende tutte le funzionalità di lato applicazioni', 'info_url' =>route('articoli.php')],
             ['id' => 4, 'title' => 'Computer-Web', 'description' => 'lato-server e lato-client ( logiche ed applicativi)', 'info_url' =>route('articoli.dettaglio')]
@@ -71,7 +71,7 @@ public function servizi(){
             [
                 'title' => "Intro Html",
                 'content' => "Introduzione di Argomenti PC",
-                'info_url' => route('articoli.html')
+                'info_url' => route('homepage')
             ],
             [
                 'title' => "Javascript",

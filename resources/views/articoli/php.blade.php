@@ -41,6 +41,38 @@
             /* 0.7 è la trasparenza (da 0 a 1) */
             z-index: -1;
         }
+
+        /* CSS PER DELLE CARD DI PAGINA */
+
+        .container-custom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            /* importantissimo per andare a capo */
+            gap: 20px;
+        }
+
+        .card-custom {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            width: 300px;
+            min-width: 250px;
+            max-width: 350px;
+
+            height: 250px;
+            max-height: 300px;
+
+            padding: 15px;
+            border: 4px solid greenyellow;
+            border-radius: 10px;
+
+            background-color: white;
+        }
+
+     
     </style>
 </head>
 
@@ -54,14 +86,13 @@
 
 
 
-
     <!-- CARD DINAMICA -->
-    <div class="container mt-4">
+    <div class="container-custom mt-4">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
             @foreach($cards as $card)
             <div class="col">
-                <div class="card"style="max-width: 18rem;">
+                <div class="card card-custom" style="max-width: 18rem;">
                     <div class="card-header">{{ $card['header'] }}</div>
                     <div class="card-body">
                         <h5 class="card-title">{{ $card['title'] }}</h5>
@@ -73,7 +104,41 @@
 
         </div>
     </div>
-    
+    <!-- ___________________________________________________________________ -->
+
+    <div class="container">
+        <div class="row">
+
+            @foreach ($items as $item)
+
+            <div class="col-12 col-md-6 mb-3">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4>{{ $item['title'] }}</h4>
+                        <p>{{ $item['details'] }}</p>
+                        <p>{{ $item['argoment'] }}</p>
+
+                        <details>
+                            <summary>Vedi esempio</summary>
+
+                            <div>
+                                {{ $item['content'] }}
+                            </div>
+
+                        </details>
+
+                    </div>
+                </div>
+
+            </div>
+
+            @endforeach
+
+        </div>
+    </div>
+
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/daf6ff33d9.js" crossorigin="anonymous"></script>

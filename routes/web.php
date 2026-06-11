@@ -57,3 +57,5 @@ Route::get('/articoli/js', [ArticleController::class, 'js'])->name('articoli.js'
 Route::get('/articoli/css', [ArticleController::class, 'css'])->name('articoli.css');
 
 Route::get('/articoli/php', [ArticleController::class, 'php'])->name('articoli.php');
+//xdetails page
+Route::get('/articoli/html', [ArticleController::class, 'htmlArray']);

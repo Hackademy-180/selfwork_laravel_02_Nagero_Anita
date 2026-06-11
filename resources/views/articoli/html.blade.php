@@ -40,6 +40,36 @@
             /* 0.7 è la trasparenza (da 0 a 1) */
             z-index: -1;
         }
+
+        /* CSS PER DELLE CARD DI PAGINA */
+
+        .container-custom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            /* importantissimo per andare a capo */
+            gap: 20px;
+        }
+
+        .card-custom {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            width: 300px;
+            min-width: 250px;
+            max-width: 350px;
+
+            height: 250px;
+            max-height: 300px;
+
+            padding: 15px;
+            border: 4px solid greenyellow;
+            border-radius: 10px;
+
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -51,17 +81,46 @@
     <!-- NAVBAR -->
     <x-navbar />
     <!-- FINE NAVBAR -->
+    <h1 class="h1 d-1 fw-bold text-success-emphasis">Pagina HTML mini pagina guida</h1>
+    <main class="container-custom">
+        <div class="row">
+            @foreach ($ex_code4view as $item)
+            <div class="col-12 col-md-6">
+                <div class="card card-custom">
+                    <div class="card-body">
 
+                        <h4>{{$item['title']}}</h4>
+                        <p class="card-text">{{$item['details']}}</p>
+                        <p class="card-text">{{$item['argoment']}}</p>
+
+
+
+                    </div>
+                </div>
+
+
+                @endforeach
+            </div>
+        </div>
+        <input type="search" class="search">Search..
+    </main>
     <!-- CARD DINAMICA -->
     <div class="container mt-4">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
             @foreach($cards as $card)
             <div class="col">
-                <div class="card text-bg-{{ $card['color'] }} mb-3" style="max-width: 18rem;">
+                <div class="card mb-3" style="max-width: 18rem;">
                     <div class="card-header">{{ $card['header'] }}</div>
                     <div class="card-body">
                         <h5 class="card-title">{{ $card['title'] }}</h5>
+                        <details>
+                            <summary>Mostra / Nascondi</summary>
+
+                            <div class="mt-2">
+                                {{ $item['content'] }}
+                            </div>
+                        </details>
                         <p class="card-text">{{ $card['text'] }}</p>
                     </div>
                 </div>
@@ -70,7 +129,7 @@
 
         </div>
     </div>
-    
+
 
 
 
