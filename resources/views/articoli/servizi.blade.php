@@ -20,6 +20,7 @@
 
     <style>
         body {
+            backdrop-filter: blur(10px);
             background-color: aquamarine !important;
         }
 
@@ -29,15 +30,19 @@
             font-family: "Orbitron", sans-serif;
         }
 
-
-        .card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            animation: floatCard 4s ease-in-out infinite;
+        .navbar {
+            backdrop-filter: blur(10px);
         }
 
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        .card {
+
+            width: 300px;
+            transition: transform 0.2s ease;
+        }
+
+
+        .border-red-custom {
+            border: 3px double red !important;
         }
     </style>
 </head>
@@ -56,23 +61,23 @@
 
     <div class="container mb-5">
         <div class="row">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-8 col-lg-4 d-flex justify-content-center">
                 <div class="card border border-danger border-4 h-100 p-4">
                     <div class=" card-title">Opzioni di servizi disponibili-</div>
 
-                <ul class="list-unstyled mt-3">
-                    <li class="p-2 border-bottom">Argomento 1 - HTML con VSC</li>
-                    <li class="p-2 border-bottom">Argomento 2 - JAVASCRIPT</li>
-                    <li class="p-2">Argomento 3 - PHP e Laravel</li>
-                </ul>
+                    <ul class="list-unstyled mt-3">
+                        <li class="p-2 border-bottom fw-bold">Argomento 1 - HTML con VSC</li>
+                        <li class="p-2 border-bottom fw-bold">Argomento 2 - JAVASCRIPT</li>
+                        <li class="p-2 fw-bold">Argomento 3 - PHP e Laravel</li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
     </div>
 
     <!-- CARDS -->
-    <h2 class="text-center mb-4">I nostri Argomenti studio:</h2>
+    <h2 class="text-center mb-4 p-4 g-4">I nostri Argomenti studio:</h2>
 
     <div class="container mb-4  d-flex justify-content-center">
         <div class="row g-3">
@@ -80,18 +85,26 @@
             <!-- ciclare argomenti e metterci da publicController le funzioni a collegamento -->
             @foreach($argomenti as $index => $argomento)
             <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                <div class="card h-100">
+                <div class="card h-100 bg-dark ">
 
-                    <div class="card-body d-flex flex-column p-4">
+                    <div class="card-body d-flex justify-content-center p-4">
 
 
-                        <h5 class="card-title mb-2 py-2">{{ $argomento['title'] }}</h5>
+                        <h5 class="card-title d-flex text-warning py-2">{{ $argomento['title'] }}</h5>
 
-                        <p class="card-text mb-2 py-2"> {{ $argomento['content'] }}</p>
+                        <p class="card-text  d-flex text-center text-warning p-2 "> {{ $argomento['content'] }}</p>
 
-                        <div class="mt-auto d-flex gap-2">
-                            <a href="#" class="btn btn-sm btn-outline-primary">Info</a>
-                            <a href="#" class="btn btn-sm btn-primary">Dettagli</a>
+                        <div class="mt-auto d-flex justify-content-center">
+
+                            <!-- Info -->
+                            <a href="{{$argomento['info_url']}}" class="btn btn-sm btn-info display:flex">Info</a>
+
+                            <!-- Dettagli -->
+
+                            <a href="{{ $argomento['info_url'] }}" class="btn btn-sm btn-primary">
+                                Dettagli
+                            </a>
+
                         </div>
 
 
@@ -103,6 +116,12 @@
             @endforeach
         </div>
     </div>
+    <!-- aggiunta elemento -->
+    <breadcrumb />
+    <!-- FOOTER -->
+    <x-footer />
+    <!-- FINE FOOTER - VIA LINKS PER GLI SCRIPT -->
+
 
     <!-- KIT FONT-AWESOME XIKONS -->
     <script src="https://kit.fontawesome.com/daf6ff33d9.js" crossorigin="anonymous"></script>

@@ -23,8 +23,12 @@
 
     <style>
         body {
+            padding: 0;
+            min-height: 100vh;
+            margin: 0;
             background-color: aquamarine !important;
         }
+
 
         h1,
         .h1 {
@@ -32,25 +36,7 @@
             font-family: "Orbitron", sans-serif;
         }
 
-        /* LOGO */
 
-        .LOGO {
-            margin: auto;
-            height: 40px;
-            width: 40px;
-        }
-
-        /* card */
-
-        .card {
-            background-color: wheat;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
-        }
 
         /* BOTTONE CARD */
         .btn-details {
@@ -59,17 +45,66 @@
             border-radius: 50px;
         }
 
-        .card {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 1s forwards;
+
+        /*  CARD STILIZZATE */
+
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            /* Obbliga ad andare a capo se non c'è spazio */
+            gap: 20px;
+            justify-content: flex-start;
         }
 
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .custom-card {
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: column;
+            width: calc(50% - 20px);
+            /* 2 card per riga */
+            background-color: yellow;
+            padding: 20px;
+            border: 1px solid gray;
+            border-radius: 10px;
+        }
+
+        .btn-details {
+            margin-top: auto;
+            padding: 10px;
+            border: 3px outset green;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+
+
+        .btn-details {
+            margin-top: auto;
+            padding: 10px;
+            border: 3px outset green;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+
+
+        /* FOOTER */
+        footer {
+            margin: 0;
+            padding: 20px 0;
+            width: 100%;
+            border-top: 1px solid #000;
+            position: absolute;
+            text-align: center;
+            color: wheat;
+            background-color: wheat;
         }
     </style>
 </head>
@@ -101,25 +136,20 @@
         </header>
 
 
-        <!-- inizio MAIN -->
-        <main class="container mb-5">
-            <section class="row g-2">
+        <main class="container-fluid my-5">
+            <div class="card-container">
+                @foreach($argomenti as $argomento)
+                <div class="custom-card">
+                    <h5 class="fw-bold">{{$argomento['description']}}</h5>
+                    <h6 class="text-muted">{{$argomento['id']}}</h6>
+                    <p>{{$argomento['description']}}</p>
 
-                @foreach($detailsArticles as $argomento)
-                <div class="col-12 col-md-6">
-                    <div class="card h-100">
-                        <h5 class="card-title fw-bold txt-p">{{$argomento['description']}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{$argomento['id']}}</h6>
-
-                        <p class="card text p-4">{{$argomento['description']}}</p>
-
-                        <a href="{{ $argomento['link'] }}" class="btn btn-details mt-auto"> Vedi Dettagli</a>
-                    </div>
+                    <a href="{{ $argomento['info_url'] }}" class="btn-details">Vedi Dettagli</a>
                 </div>
-                <!-- SEZIONE PAGINA PER ARGOMENTI TARTTATI NEL MIO BLOG  -->
                 @endforeach
+            </div>
 
-            </section>
+
 
 
             <!-- LINKS OF PAGE -->
@@ -149,9 +179,11 @@
         </main>
 
 
-        <!-- CREO LINKS SEPARATI/ UNA RIGA MOSTRERA PERCORSO NELLA STRUTTURA SITO -->
-        <!-- BREADC. PER AVERE POSSIBILI SLITTAMENTI VIA LINKS -->
 
+
+
+        <!-- aggiunta elemento -->
+        <breadcrumb />
 
 
 

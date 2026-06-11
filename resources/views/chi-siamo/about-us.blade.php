@@ -40,6 +40,21 @@
             transform: translateY(-2px);
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
         }
+
+        /* CSS PER ICONE PAGINE EXTRA */
+        .breadcrumb a,
+        .breadcrumb i {
+            transition: 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #3b0a59;
+        }
+
+        .breadcrumb a:hover i {
+            transform: scale(1.4);
+            color: #5a0f8a;
+        }
     </style>
 
 </head>
@@ -109,8 +124,47 @@
 
 
     </main>
+    <h4>LE NOSTRE PAGINE OFFERTE</h4>
+    <i class="fa-solid fa-face-smile ms-3 text-center fs-2 text-danger"></i>
 
+    <!-- stacco per links breadc. da bts -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb fw-bold">
 
+            <!-- HOME -->
+            <li class="breadcrumb-item">
+                <a href="articoli/html" class="text-warning text-decoration-none">HTML
+                    <i class="fa-solid fa-code html"></i>
+                </a>
+            </li>
+            <!-- JS -->
+            <li class="breadcrumb-item">
+                <a href="articoli/js" class="text-warning text-decoration-none">
+                    <i class=" fa-brands fa-js fa-lg me-1"></i> JS
+                </a>
+            </li>
+
+            <!-- CSS -->
+            <li class="breadcrumb-item">
+                <a href="articoli/css" class="text-warning text-decoration-none">
+                    <i class=" fa-brands fa-css3-alt fa-lg me-1"></i> CSS
+                </a>
+            </li>
+
+            <!-- PHP -->
+            <li class="breadcrumb-item">
+                <a href="articoli/php" class="text-warning text-decoration-none">
+                    <i class=" fa-brands fa-php fa-lg me-1"></i> PHP
+                </a>
+            </li>
+
+            <!-- LARAVEL (attivo) -->
+            <li class="breadcrumb-item active" aria-current="page">
+                <i class="fa-brands fa-laravel"></i> Laravel
+            </li>
+
+        </ol>
+    </nav>
 
 
     <!-- KIT FONT-AWESOME XIKONS -->

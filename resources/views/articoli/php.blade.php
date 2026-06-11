@@ -45,67 +45,38 @@
 </head>
 
 <body>
+    <!-- DIV PER LO SFONDO -->
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
     <!-- NAVBAR -->
     <x-navbar />
     <!-- FINE NAVBAR -->
 
 
-    <!-- DIV PER LO SFONDO -->
-    <div class="bg-image"></div>
-    <div class="bg-overlay"></div>
 
 
-    <!-- BREADCRUMBS BY BOOTSTRAP FOR MORE WEBSITES -->
+    <!-- CARD DINAMICA -->
+    <div class="container mt-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+            @foreach($cards as $card)
+            <div class="col">
+                <div class="card"style="max-width: 18rem;">
+                    <div class="card-header">{{ $card['header'] }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $card['title'] }}</h5>
+                        <p class="card-text">{{ $card['text'] }}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
 
-            <!-- HOME -->
-            <li class="breadcrumb-item">
-                <a href="/">
-                    <i class="fa-solid fa-house"></i> Home
-                </a>
-            </li>
-            <!-- HTML -->
+        </div>
+    </div>
+    
 
-            <li class="breadcrumb-item">
-                <a href="articoli/html">
-                    <i class="fa-brands fa-js"></i> HTML
-                </a>
-            </li>
-            <!-- JS -->
-            <li class="breadcrumb-item">
-                <a href="articoli/js">
-                    <i class="fa-brands fa-js"></i> JS
-                </a>
-            </li>
-
-            <!-- CSS -->
-            <li class="breadcrumb-item">
-                <a href="articoli/css">
-                    <i class="fa-brands fa-css3-alt"></i> CSS
-                </a>
-            </li>
-
-            <!-- PHP -->
-            <li class="breadcrumb-item">
-                <a href="articoli/php">
-                    <i class="fa-brands fa-php"></i> PHP
-                </a>
-            </li>
-
-            <!-- LARAVEL (attivo) -->
-            <li class="breadcrumb-item active" aria-current="page">
-                <i class="fa-brands fa-laravel"></i> Laravel
-            </li>
-
-        </ol>
-    </nav>
-
-
-
-
-
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/daf6ff33d9.js" crossorigin="anonymous"></script>
     <!-- script bts -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

@@ -58,59 +58,35 @@
 
 <body>
 
+
     <!-- DIV PER LO SFONDO -->
     <div class="bg-image"></div>
     <div class="bg-overlay"></div>
 
-    <!-- NAVBAR -->
-    <x-navbar />
-    <!-- FINE NAVBAR -->
 
+    <!-- INIZIO PAGINAZIONE -->
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+    <main>
 
-            <!-- HOME -->
-            <li class="breadcrumb-item">
-                <a href="/">
-                    <i class="fa-solid fa-house"></i> Home
-                </a>
-            </li>
-            <!-- HTML -->
-          
-            <li class="breadcrumb-item">
-                <a href="articoli/html">
-                    <i class="fa-brands fa-js"></i> HTML
-                </a>
-            </li>
-            <!-- JS -->
-            <li class="breadcrumb-item">
-                <a href="articoli/js">
-                    <i class="fa-brands fa-js"></i> JS
-                </a>
-            </li>
+        <div class="container mt-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-            <!-- CSS -->
-            <li class="breadcrumb-item">
-                <a href="articoli/css">
-                    <i class="fa-brands fa-css3-alt"></i> CSS
-                </a>
-            </li>
+                @foreach($cards as $card)
+                <div class="col">
+                    <div class="card" style="max-width: 18rem;">
+                        <div class="card-header">{{ $card['header'] }}</div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $card['title'] }}</h5>
+                            <p class="card-text">{{ $card['text'] }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
 
-            <!-- PHP -->
-            <li class="breadcrumb-item">
-                <a href="articoli/php">
-                    <i class="fa-brands fa-php"></i> PHP
-                </a>
-            </li>
-
-            <!-- LARAVEL (attivo) -->
-            <li class="breadcrumb-item active" aria-current="page">
-                <i class="fa-brands fa-laravel"></i> Laravel
-            </li>
-
-        </ol>
-    </nav>
+            </div>
+        </div>
+        
+    </main>
 
 
 

@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg bg-success backdrop-filter-blur(8px);">
         <div class="container-fluid">
 
             <a class="navbar-brand" href="{{ route('homepage' ) }}">Il Mio Blog</a>
@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('articoli.index') }}">tutti Articoli</a>
                     </li>
-
+                    <i class="fa-solid fa-code text-warning fs-3"></i>
 
 
                 </ul>
