@@ -11,108 +11,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            backdrop-filter: blur(10px);
-            background-color: aquamarine !important;
-        }
 
-
-        .navbar {
-            backdrop-filter: blur(10px);
-        }
-
-        h1,
-        .h1 {
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-            font-family: "Orbitron", sans-serif;
-        }
-
-
-        /* CSS PER LE MIE CARD PAGINA */
-        .card {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.12s ease;
-        }
-
-
-
-        .card-body {
-
-            object-fit: cover;
-            min-height: 200px;
-
-        }
-
-
-        .card:hover {
-            transform: translateY(-2px);
-
-        }
-
-      
-    </style>
 
     <!-- collego LINK bootstrap -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- css -->
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 
 <body>
     <!-- NAVBAR -->
+
+
     <x-navbar />
-    <!-- FINE NAVBAR -->
+
+    <div class="container my-5">
+        @if($articolo)
+        <h1 class="text-center mb-5">{{ $articolo['titolo'] }}</h1>
+
+        <!-- ROW: La riga che contiene le colonne -->
+        <div class="row justify-content-center">
+
+            <!-- COL: La colonna che definisce la larghezza della card -->
+            <!-- col-12 (mobile), col-md-8 (tablet), col-lg-6 (desktop) -->
+            <div class="col-12 col-md-8 col-lg-6">
+
+                <div class="card shadow">
+                    <img
+                        src="{{ asset($articolo['img']) }}"
+                        class="card-img-top img-fluid"
+                        alt="{{ $articolo['titolo'] }}">
 
 
-    <main class="container my-4">
-
-        <div class="row g-3">
-
-            @foreach ($articles as $article)
-
-            <!-- CARD DETTAGLIO COLLEGATA AD ARTICLE CONTROLLER; -->
-
-            <div class="col-12 col-md-3">
-                <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=500" class="card-img-top" alt="Image">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $article['title'] }}</h5>
-                        <p class="card-text">{{ $article['content'] }}</p>
+                        <h5 class="card-title">{{ $articolo['titolo'] }}</h5>
+                        <p class="card-text">{{ $articolo['descrizione'] }}</p>
+                        <hr>
+                        <h6>Argomenti trattati:</h6>
+                        <ul class="list-group list-group-flush">
+                            @foreach($articolo['argomenti'] as $argomento)
+                            <li class="list-group-item">{{ $argomento }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
+
             </div>
-            @endforeach
         </div>
-      
 
-
-        <div class="row g-4">
-            @foreach ($detailsArticles as $detail)
-            <div class="col-12 col-md-3">
-                <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=500" class="card-img-top" alt="Image">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">{{ $detail['description'] }}</h5>
-                        <p class="card-text">{{ $detail['content'] }}</p>
-                    </div>
-                </div>
-            </div>
-            @endforeach
+        <div class="text-center mt-4">
+            <a href="{{ route('servizi') }}" class="btn btn-secondary">Torna ai Servizi</a>
         </div>
-    </main>
+        @else
+        <!-- ... resto del codice errore ... -->
+        @endif
+    </div>
+
+    <!-- Questo link ora punta correttamente al metodo dettaglio nel controller -->
 
 
-
-
-
-
-    <!-- FOOTER -->
     <x-footer />
-    <!-- FINE FOOTER - VIA LINKS PER GLI SCRIPT -->
-
-
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/daf6ff33d9.js" crossorigin="anonymous"></script>
 

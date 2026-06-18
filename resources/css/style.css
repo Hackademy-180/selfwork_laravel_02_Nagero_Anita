@@ -1,58 +1,85 @@
-/* PALETTE COLORI */
-:root {
-
-    --gr-dk: green;
-    --lme: lime;
-    --p: purple;
-    --blk: black;
-    --wht: white;
-    --bl: blue;
+body {
+    background-color: aquamarine;
+    
+    margin: 0;
+    font-family: "Public Sans", sans-serif;
 }
 
-/* CLASSI UTILITY */
-.bg-gr-dk {
-    background-color: var(--gr-dk);
+/* NAVBAR */
+nav {
+    background-color: #198754;
+    padding: 12px;
+}
+
+nav a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* TITOLI */
+h1 {
+    text-align: center;
+    font-family: "Orbitron", sans-serif;
+    margin: 20px 0;
+}
+
+/* CONTAINER */
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+/* GRID CARD */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    background-color: yellow;
+    padding: 20px;
+    border-radius: 10px;
+    width: calc(33% - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* BOTTONI */
+.btn {
+    text-decoration: none;
+    padding: 8px 12px;
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+    margin-top: 10px;
+    display: inline-block;
 }
 
 
-.bg-lme {
-    background-color: var(--lme);
+
+.footer{
+top: 0;
+
+width: 100%;
 }
 
-.bg-p {
-    background-color: var(--p);
+
+.contattiSocial{
+
+display: flex;
+text-align: center;
+justify-content: center;
+
 }
 
-.bg-blk {
-    background-color: var(--blk);
-}
 
-.bg-wht {
-    background-color: var(--wht);
-}
-
-.bg-bl {
-    background-color: var(--bl);
-}
-
-/* TESTI */
-
-.txt-gr-dk {
-    color: var(--gr-dk);
-}
-
-.txt-lme {
-    color: var(--lme);
-}
-
-.txt-p {
-    color: var(--p);
-}
-
-.txt-bl {
-    color: var(--bl);
-}
-
-.txt-wht {
-    color: var(--wht);
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    height: 250px;
 }

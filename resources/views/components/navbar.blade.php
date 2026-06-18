@@ -11,23 +11,20 @@
 
             </button>
 
-
+<!-- Rotte nominale, -name (nomina la pag) nome ed etichetta che poi vado a richiamare solo con URI -->
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('homepage') }}">Homepage</a>
                     </li>
-
-
+<!-- blade syntax -->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('about-us') }}">Chi Siamo</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('servizi') }}">Servizi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('articoli.index') }}">tutti Articoli</a>
                     </li>
                     <i class="fa-solid fa-code text-warning fs-3"></i>
 

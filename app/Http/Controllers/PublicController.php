@@ -5,111 +5,84 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 
-//IL CONTROLLER SERVE PER PASSARE I DATI ALLA VIEW 
+
+// QUESTO CONTROLLER PER FUNZIONI PUBLICHE SARA' COLEGATO ALLE PAGINE chi-siamo.blade.php, homepage.blade.php, e pagina servizi.blade.php(dentro cartella specifica di articoli per maggiore ordine )
 class PublicController extends Controller
 {
-    //homepage collegamaneto
 
-        public function homepage(){
-                $title = "Homepage";
-                $argomenti =[
 
-            ['id' => 1, 'title' => 'HTML', 'description' => 'Primo argomento di linguaggio pagina web', 'info_url' =>route('homepage')],
-            ['id' => 2, 'title' => 'Javascript', 'description' => 'Javascript serve per interattività, animazioni e dinamicità', 'info_url' =>route('articoli.js')],
-            ['id' => 3, 'title' => 'PHP', 'description' => ' Parte backend, comprende tutte le funzionalità di lato applicazioni', 'info_url' =>route('articoli.php')],
-            ['id' => 4, 'title' => 'Computer-Web', 'description' => 'lato-server e lato-client ( logiche ed applicativi)', 'info_url' =>route('articoli.dettaglio')]
+// funzione publica per la homepage
+    public function homepage()
+    {
+        $pagine = [
+            ['titolo' => 'Chi Siamo', 'descrizione' => 'Conosci i docenti del corso e gli studenti.'],
+            ['titolo' => 'Servizi', 'descrizione' => 'Panoramica degli argomenti trattati.'],
+        ];
+        return view('homepage', ['pagine' => $pagine]);
+    }
+
+
+
+
+
+
+
+
+    // funzione publica per pagina chi-siamo
+    public function chiSiamo()
+    {
+        $docenti = [
+            ['id' => 1, 'nome' => 'Marco Rossi', 'materia' => 'HTML & CSS'],
+            ['id' => 2, 'nome' => 'Laura Bianchi', 'materia' => 'JavaScript'],
+            ['id' => 3, 'nome' => 'Giorgio Verdi', 'materia' => 'PHP & Laravel'],
+        ];
+
+        $studenti = [
+            ['nome' => 'Alice Ferrari', 'corso' => 'Front-End/HTML', 'descrizione' => 'Struttura e semantica.'],
+            ['nome' => 'Luca Marino',   'corso' => 'Front-End/CSS',  'descrizione' => 'Stile e layout.'],
+            ['nome' => 'Sara Esposito', 'corso' => 'Full-Stack/Javascript', 'descrizione' => 'Interattività.'],
+            ['nome' => 'Davide Conti',  'corso' => 'back-End', 'descrizione' => 'Logica back-end.'],
+        ];
+
+        // Passiamo entrambi gli array alla stessa vista
+        return view('chi-siamo', ['docenti' => $docenti, 'studenti' => $studenti]);
+    }
+
+
+
+    // funzione publica per i servizi offerti( materie di studio, titolo -; contenuto e descrizione associate )
+
+
+    // poichè la pagina è dei servizi offerti è dedicata alla visione di articoli argomenti ; 
+
+
+    public function servizi()
+    {
+        $servizi = [
+            ['id' => 1, 'titolo' => 'HTML', 'content' => 'front-end lato client Html'],
+            ['id' => 2, 'titolo' => 'CSS', 'content' => 'front-end lato client CSS'],
+            ['id' => 3, 'titolo' => 'JS', 'content' => 'front-end lato client JS'],
+            ['id' => 4, 'titolo' => 'PHP', 'content' => 'back-end lato server PHP']
+        ];
+
+        return view('articoli.servizi', ['servizi' => $servizi]);
+    }
+
+    public function show($id)
+    {
+        $servizi = [
+            ['id' => 1, 'titolo' => 'Servizio 1', 'content' => 'Contenuto 1'],
+            ['id' => 2, 'titolo' => 'Servizio 2', 'content' => 'Contenuto 2'],
+            ['id' => 3, 'titolo' => 'Servizio 3', 'content' => 'Contenuto 3'],
         ];
 
 
-        return view('homepage', ['title' => $title, 'argomenti' => $argomenti]);
-            
+        foreach ($servizi as $servizio) {
+            if ($servizio['id'] == $id) {
+                return view('articolo.dettaglio', compact('servizio'));
+            }
         }
 
-    //funzione chiSiamo
-
-     public function chiSiamo() {
-
-     $students = [
-
-        'name' => 'Studenti Online ' ,
-        'content'=> 'Persone che studiano online sul pc'];
-
-        $teamInfo= [
-            'name' => 'Persone del Team' ,
-            'rule'=> 'Maestro esperto a: ' ,
-            'content'=> 'Study on-line ( Persone guidano lo studio online)'];
-        
-
-        $maestri = [
-            ['id' => 1, 'name' => 'Nicola', 'subject' => 'HTML & #CSS'],
-            ['id' => 2, 'name' => 'Maria', 'subject' => 'Javascript'],
-            ['id' => 3, 'name' => 'Maik', 'subject' => 'PHP & Laravel']];
-            
-        
-      
-
-    //passare gli Array per un return view
-return view('chi-siamo.about-us', ['students'=>$students, 'teamInfo'=> $teamInfo,  'maestri'=>$maestri]);
+        abort(404);
+    }
 }
-
-
-
-
-
-
-//FUNZIONE AGGIUNTIVA / SERVIZI 
-public function servizi(){
-
-            $arrayServizi= [
-                ['title' =>'HTML & #CSS', 'services' =>'Lezioni on-line'],
-                ['title' =>'Javascript'],
-                ['title'=>'PHP & Laravel']
-            ];
-
-            $argomenti = [
-
-            [
-                'title' => "Intro Html",
-                'content' => "Introduzione di Argomenti PC",
-                'info_url' => route('homepage')
-            ],
-            [
-                'title' => "Javascript",
-                'content' => "Interattività",
-                'info_url' => route('articoli.js')
-            ],
-            [
-                'title' => "Laravel",
-                'content' => "Backend",
-                'info_url' => route('articoli.php')
-            ]
-
-        ];
-return view('articoli.servizi', ['servizi'=> $arrayServizi, 'argomenti'=>$argomenti]);
-}
-
-
-
-
-//DETTAGLI DI ARGOMENTO ARTICOLO 
-public function index(){
-
-            $infoArticles=[
-            ['argomento'=> 'HTML', 'info'=> 'Strutture ed impaginazioni'],
-
-            ['argomento'=> 'CSS', 'info'=> 'Stili e design per il Layout'],
-
-            ['argomento'=> 'Javascript', 'info'=> 'Dinamicità ed Interattività della pagina'],
-
-             ['argomento' => 'PHP', 'info' => 'Linguaggio backend per struttura dinamica'],
-
-            ['argomento' => 'Laravel', 'info' => 'Struttura Framework di backend']
-
-
-    ];
-    return view('dettagli',['infoArticles'=>$infoArticles]);
-}
-}
-
-
-

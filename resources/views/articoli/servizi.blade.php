@@ -18,109 +18,53 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            backdrop-filter: blur(10px);
-            background-color: aquamarine !important;
-        }
+    <!-- css -->
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
 
-        h1,
-        .h1 {
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-            font-family: "Orbitron", sans-serif;
-        }
-
-        .navbar {
-            backdrop-filter: blur(10px);
-        }
-
-        .card {
-
-            width: 300px;
-            transition: transform 0.2s ease;
-        }
-
-
-        .border-red-custom {
-            border: 3px double red !important;
-        }
-    </style>
 </head>
 
+<!-- FINE STILE DI PAGINA  -->
+
 <body>
-    <!-- NAVBAR -->
+
+
     <x-navbar />
-    <!-- FINE NAVBAR -->
 
-    <header class="container text-center">
-        <h1 class="display-4 fw-bold txt-p">Servizi Utili</h1>
-        <p>
-            Contattaci; Poichè gli argomenti, son accessibili per chiunque!
-        </p>
-    </header>
+    <div class="container my-5">
+        <h1 class="display-3 text-center">I nostri Servizi</h1>
 
-    <div class="container mb-5">
         <div class="row">
-            <div class="col-12 col-md-8 col-lg-4 d-flex justify-content-center">
-                <div class="card border border-danger border-4 h-100 p-4">
-                    <div class=" card-title">Opzioni di servizi disponibili-</div>
+            @foreach ($servizi as $servizio)
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card h-100" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $servizio['titolo'] }}</h5>
 
-                    <ul class="list-unstyled mt-3">
-                        <li class="p-2 border-bottom fw-bold">Argomento 1 - HTML con VSC</li>
-                        <li class="p-2 border-bottom fw-bold">Argomento 2 - JAVASCRIPT</li>
-                        <li class="p-2 fw-bold">Argomento 3 - PHP e Laravel</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- CARDS -->
-    <h2 class="text-center mb-4 p-4 g-4">I nostri Argomenti studio:</h2>
-
-    <div class="container mb-4  d-flex justify-content-center">
-        <div class="row g-3">
-
-            <!-- ciclare argomenti e metterci da publicController le funzioni a collegamento -->
-            @foreach($argomenti as $index => $argomento)
-            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                <div class="card h-100 bg-dark ">
-
-                    <div class="card-body d-flex justify-content-center p-4">
+                        <p class="card-text">
+                            {{ $servizio['content'] }}
+                        </p>
 
 
-                        <h5 class="card-title d-flex text-warning py-2">{{ $argomento['title'] }}</h5>
 
-                        <p class="card-text  d-flex text-center text-warning p-2 "> {{ $argomento['content'] }}</p>
+                        <a href="{{ route('articolo', ['id' => $servizio['id']]) }}">
+                            Vai al dettaglio
+                        </a>
 
-                        <div class="mt-auto d-flex justify-content-center">
 
-                            <!-- Info -->
-                            <a href="{{$argomento['info_url']}}" class="btn btn-sm btn-info display:flex">Info</a>
+                        </a>
 
-                            <!-- Dettagli -->
-
-                            <a href="{{ $argomento['info_url'] }}" class="btn btn-sm btn-primary">
-                                Dettagli
-                            </a>
-
-                        </div>
 
 
                     </div>
                 </div>
-
             </div>
-
             @endforeach
         </div>
     </div>
-    <!-- aggiunta elemento -->
-    <breadcrumb />
-    <!-- FOOTER -->
-    <x-footer />
-    <!-- FINE FOOTER - VIA LINKS PER GLI SCRIPT -->
+
+
+
+
 
 
     <!-- KIT FONT-AWESOME XIKONS -->
