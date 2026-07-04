@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+/* @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -6,4 +6,108 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+} */
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+
+body {
+    
+    flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    margin: 0;
+    background-color: aquamarine;
+    font-family: "Public Sans", sans-serif;
+}
+
+main{
+    flex: 1;
+}
+
+/* NAVBAR */
+nav {
+    background-color: #198754;
+    padding: 12px;
+}
+
+nav a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* TITOLI */
+h1 {
+    color: #198754;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Orbitron", sans-serif;
+    margin: 20px 0;
+}
+
+/* CONTAINER */
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+/* GRID CARD */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    background-color: yellow;
+    padding: 20px;
+    border-radius: 10px;
+    width: calc(33% - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* BOTTONI */
+.btn {
+    text-decoration: none;
+    padding: 8px 12px;
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+
+
+.footer{
+margin-top: auto;
+ position: absolute; 
+border-top: 4px double  lime;
+bottom: 0;
+width: 100%;
+}
+
+
+.contattiSocial{
+
+display: flex;
+text-align: center;
+justify-content: center;
+
+}
+
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    height: 250px;
 }
