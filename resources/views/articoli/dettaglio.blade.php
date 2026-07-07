@@ -44,6 +44,8 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+
+                {{-- ogni nome di rotta deve essere rigorosamente univoco --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('homepage') }}">
                         Homepage

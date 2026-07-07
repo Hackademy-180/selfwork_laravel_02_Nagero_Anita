@@ -1,8 +1,12 @@
 <?php
 
+
+// rotte get post put lavoran su scala con controlelr, uri  e applicativi - come esempio anche i sistemi di sicuraezza;
+//Routecollection aumenta velocita ed efficienza
+
 use Illuminate\Support\Facades\Route;
 
-// HOMEPAGE
+// HOMEPAGE preferitosi metodi di concatenazione nome del controller e azione il nome della rotta diventa direttamente self::classn
 Route::get('/', function () {
 
     $pagine = [
@@ -141,7 +145,10 @@ Route::get('/articolo/{id}', function ($id) {
 })->name('articolo');
 
 
-// ROTTA ALTERNATIVA
+// ROTTA ALTERNATIVA, validazione regex filtra i parametri d ingresso prima che la richiesta tocchi la logica di business[where ID- Controlelr]
+// dependency inj. e parametri, ordine esatto attributi comuni tramite strati gerarchia 
+
+
 Route::get('/dettaglio/{id}', function ($id) {
 
     return redirect()->route('articolo', $id);
